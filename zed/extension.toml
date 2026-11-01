@@ -1,0 +1,7 @@
+id = "favo-theme"
+name = "Favo"
+version = "0.1.0"
+schema_version = 1
+authors = ["Irwin Arruda"]
+description = "Honey-led dark and light themes, Favo Honey and Favo Wax."
+repository = "https://github.com/irwinarruda/favo-theme"

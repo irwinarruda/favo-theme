@@ -1,0 +1,62 @@
+{
+  "honey": {
+    "name": "Favo Honey",
+    "appearance": "dark",
+    "background": "#14110B",
+    "panel": "#1B170F",
+    "raised": "#221D14",
+    "float": "#0F0D08",
+    "border": "#3A3122",
+    "selection": "#3D2E0F",
+    "faint": "#6E6250",
+    "comment": "#A3937A",
+    "foreground": "#F3E7CF",
+    "accent": "#F5A623",
+    "accentText": "#F5A623",
+    "fill": "#F5A623",
+    "fillHover": "#FFC857",
+    "onFill": "#14110B",
+    "keyword": "#FCAF41",
+    "function": "#74C7FF",
+    "type": "#77EDD1",
+    "string": "#B8EC6D",
+    "constant": "#BC9DFB",
+    "param": "#F898C3",
+    "regex": "#F9786A",
+    "warning": "#FFC857",
+    "ansi": [
+      "#3A3122", "#F9786A", "#B8EC6D", "#FCAF41", "#74C7FF", "#BC9DFB", "#77EDD1", "#F3E7CF",
+      "#857761", "#FF8E80", "#CDFF88", "#FFC460", "#8CDBFF", "#CEB2FF", "#92FFE5", "#FFFAEE"
+    ]
+  },
+  "wax": {
+    "name": "Favo Wax",
+    "appearance": "light",
+    "background": "#FBF5E6",
+    "panel": "#F4EBD5",
+    "raised": "#EDE2C6",
+    "float": "#FFFAEF",
+    "border": "#DCCDAA",
+    "selection": "#F6DFA6",
+    "faint": "#9C8D73",
+    "comment": "#857559",
+    "foreground": "#33291A",
+    "accent": "#B8720A",
+    "accentText": "#8F5600",
+    "fill": "#8F5600",
+    "fillHover": "#7A4900",
+    "onFill": "#FBF5E6",
+    "keyword": "#915100",
+    "function": "#1F62A4",
+    "type": "#007D70",
+    "string": "#477C18",
+    "constant": "#7145B5",
+    "param": "#AA3069",
+    "regex": "#C43E27",
+    "warning": "#8F5600",
+    "ansi": [
+      "#33291A", "#C43E27", "#477C18", "#915100", "#1F62A4", "#7145B5", "#007D70", "#DCCDAA",
+      "#9C8D73", "#D95942", "#5E9138", "#A56721", "#3B77B8", "#845DC9", "#339284", "#F4EBD5"
+    ]
+  }
+}

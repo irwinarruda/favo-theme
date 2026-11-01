@@ -1,0 +1,24 @@
+{
+  "semantic_tokens": "combined",
+  "global_lsp_settings": {
+    "semantic_token_rules": [
+      { "token_type": "class", "style": ["lsp.type.class", "type"] },
+      { "token_type": "decorator", "style": ["lsp.type.decorator", "attribute"] },
+      { "token_type": "enum", "style": ["lsp.type.enum", "type"] },
+      { "token_type": "enumMember", "style": ["lsp.type.enumMember", "constant"] },
+      { "token_type": "function", "style": ["lsp.type.function", "function"] },
+      { "token_type": "interface", "style": ["lsp.type.interface", "type"] },
+      { "token_type": "macro", "style": ["lsp.type.macro", "function"] },
+      { "token_type": "method", "style": ["lsp.type.method", "function"] },
+      { "token_type": "namespace", "style": ["lsp.type.namespace", "module"] },
+      { "token_type": "parameter", "style": ["variable.parameter"] },
+      { "token_type": "property", "style": ["property"] },
+      { "token_type": "struct", "style": ["lsp.type.struct", "type"] },
+      { "token_type": "type", "style": ["type.builtin", "type"] },
+      { "token_type": "typeParameter", "style": ["lsp.type.typeParameter", "typeParameter"] },
+      { "token_type": "variable", "token_modifiers": ["readonly"], "style": ["variable.constant", "constant"] },
+      { "token_type": "variable", "token_modifiers": ["defaultLibrary"], "style": ["variable.constant", "constant"] },
+      { "token_type": "variable", "style": ["variable"] },
+    ],
+  },
+}
