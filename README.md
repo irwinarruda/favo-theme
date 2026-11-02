@@ -91,15 +91,19 @@ Without a plugin manager, copy `vim/colors/*.vim` to `~/.vim/colors/`. Colors ar
 
 ### VS Code and Cursor
 
-Run `bun run install-themes` from a clone. It packages the `vscode/` folder into an extension and installs it with the `code` and `cursor` commands, whichever you have. Then pick **Favo Honey** or **Favo Wax** with `Preferences: Color Theme`.
-
-To do it by hand:
+In VS Code, search for **Favo** in Extensions, install it from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=irwinarruda.favo-theme), or run:
 
 ```sh
-cd vscode
-bunx @vscode/vsce package --no-dependencies --out /tmp/favo-theme.vsix
-code --install-extension /tmp/favo-theme.vsix
+code --install-extension irwinarruda.favo-theme
 ```
+
+Cursor gets its extensions from [Open VSX](https://open-vsx.org/extension/irwinarruda/favo-theme) and scans each one before listing it, so Favo can take a while to reach its search. To install it now, download the `.vsix` from the [latest release](https://github.com/irwinarruda/favo-theme/releases/latest), then run:
+
+```sh
+cursor --install-extension favo-theme-*.vsix
+```
+
+Then pick **Favo Honey** or **Favo Wax** with `Preferences: Color Theme`.
 
 It covers language server highlighting, rainbow brackets, diffs, the terminal and the whole interface. In `settings.json`, the theme ids are `favo-honey` and `favo-wax`.
 
