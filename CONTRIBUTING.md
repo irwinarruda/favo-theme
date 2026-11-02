@@ -31,6 +31,10 @@ Please write ports from the spec and from the app's own public docs. Don't copy 
 
 If you change a color, `bun run check` has to stay green. The contrast rules are the reason this theme exists.
 
+## Releasing the extension
+
+Bump `version` in `vscode/package.json`, merge it, then run `gh workflow run publish.yml`. It publishes the same package to the VS Code Marketplace and to Open VSX, which is where Cursor gets its extensions.
+
 ## Commits
 
 Use [Conventional Commits](https://www.conventionalcommits.org).
