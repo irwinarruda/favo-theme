@@ -5,6 +5,8 @@
   "scripts": {
     "build": "bun src/build.ts",
     "check": "bun src/check.ts",
-    "install-themes": "bun src/install.ts"
+    "check:release-version": "bun src/check-release-version.ts",
+    "install-themes": "bun src/install.ts",
+    "release:notes": "bun src/release-notes.ts"
   }
 }

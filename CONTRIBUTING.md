@@ -31,9 +31,9 @@ Please write ports from the spec and from the app's own public docs. Don't copy 
 
 If you change a color, `bun run check` has to stay green. The contrast rules are the reason this theme exists.
 
-## Releasing the extension
+## Changelog and releases
 
-Bump `version` in `vscode/package.json`, merge it, then run `gh workflow run publish.yml`. It publishes the same package to the VS Code Marketplace and to Open VSX, which is where Cursor gets its extensions.
+Add anything someone using Favo would notice to `## [Unreleased]` in [CHANGELOG.md](CHANGELOG.md), in the same commit as the change. A maintainer then releases it by pushing a version tag, which creates the GitHub Release and publishes the extension to the VS Code Marketplace and to Open VSX. The steps are in [AGENTS.md](AGENTS.md).
 
 ## Commits
 
