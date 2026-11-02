@@ -6,6 +6,7 @@ import { opencode } from './targets/opencode';
 import { swatches } from './targets/swatches';
 import { t3code } from './targets/t3code';
 import { vim } from './targets/vim';
+import { vscode } from './targets/vscode';
 import { zed } from './targets/zed';
 
 export function outputs() {
@@ -17,6 +18,7 @@ export function outputs() {
       swatches(variant),
       t3code(variant),
       vim(variant),
+      vscode(variant),
     ]),
     neovim(),
     zed(),

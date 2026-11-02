@@ -19,7 +19,8 @@ Three things here are Favo's own:
 - The Honey and Wax themes and the logo from [favo](https://github.com/irwinarruda/favo-cli).
 - The contrast formula from [WCAG 2.1](https://www.w3.org/TR/WCAG21/).
 - [OKLab](https://bottosson.github.io/posts/oklab/), by Björn Ottosson, for measuring how different two colors look.
-- The public documentation and schemas of each app: the help pages of [Neovim](https://neovim.io/doc/) and [Vim](https://www.vim.org/docs.php), the plugins listed in the README, and the theme docs of [Zed](https://zed.dev/docs/extensions/themes), [Ghostty](https://ghostty.org/docs/features/theme), [OpenCode](https://opencode.ai/docs/themes/) and [Herdr](https://herdr.dev). Each port was written from these and from [SPEC.md](SPEC.md).
+- The public documentation and schemas of each app: the help pages of [Neovim](https://neovim.io/doc/) and [Vim](https://www.vim.org/docs.php), the plugins listed in the README, and the theme docs of [VS Code](https://code.visualstudio.com/api/references/theme-color), [Zed](https://zed.dev/docs/extensions/themes), [Ghostty](https://ghostty.org/docs/features/theme), [OpenCode](https://opencode.ai/docs/themes/) and [Herdr](https://herdr.dev). Each port was written from these and from [SPEC.md](SPEC.md).
+- [Dracula for Visual Studio Code](https://github.com/dracula/visual-studio-code), as a checklist of which TextMate scopes a theme should cover. The scopes were checked against the grammars that ship with VS Code, and which color goes where comes from [SPEC.md](SPEC.md).
 
 ## Neighbors
 
