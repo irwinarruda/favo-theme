@@ -1,0 +1,20 @@
+{
+  "name": "favo-theme",
+  "displayName": "Favo",
+  "description": "Honey-led dark and light themes, Favo Honey and Favo Wax.",
+  "version": "0.1.0",
+  "publisher": "irwinarruda",
+  "license": "MIT",
+  "icon": "icon.png",
+  "galleryBanner": { "color": "#14110B", "theme": "dark" },
+  "repository": { "type": "git", "url": "https://github.com/irwinarruda/favo-theme" },
+  "engines": { "vscode": "^1.70.0" },
+  "categories": ["Themes"],
+  "keywords": ["theme", "dark", "light", "honey", "warm"],
+  "contributes": {
+    "themes": [
+      { "id": "favo-honey", "label": "Favo Honey", "uiTheme": "vs-dark", "path": "./themes/favo-honey.json" },
+      { "id": "favo-wax", "label": "Favo Wax", "uiTheme": "vs", "path": "./themes/favo-wax.json" }
+    ]
+  }
+}

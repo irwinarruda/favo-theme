@@ -52,20 +52,32 @@ export function distance(first: string, second: string) {
   return Math.hypot(...oklab(first).map((value, index) => value - (to[index] ?? 0)));
 }
 
-export function tints(variant: Variant) {
-  const { accent, background, foreground, regex, string, type, warning } = variant;
+function paintTints(variant: Variant, paint: (color: string, amount: number) => string) {
+  const { accent, foreground, regex, string, type, warning } = variant;
   return {
-    line: mix(accent, background, 0.08),
-    search: mix(accent, background, 0.35),
-    reference: mix(foreground, background, 0.1),
-    referenceWrite: mix(accent, background, 0.2),
-    diffAdded: mix(string, background, 0.18),
-    diffRemoved: mix(regex, background, 0.16),
-    diffChanged: mix(variant.function, background, 0.12),
-    diffText: mix(variant.function, background, 0.28),
-    errorBackground: mix(regex, background, 0.1),
-    warningBackground: mix(warning, background, 0.1),
-    infoBackground: mix(variant.function, background, 0.1),
-    hintBackground: mix(type, background, 0.1),
+    line: paint(accent, 0.08),
+    search: paint(accent, 0.35),
+    reference: paint(foreground, 0.1),
+    referenceWrite: paint(accent, 0.2),
+    diffAdded: paint(string, 0.18),
+    diffRemoved: paint(regex, 0.16),
+    diffChanged: paint(variant.function, 0.12),
+    diffText: paint(variant.function, 0.28),
+    errorBackground: paint(regex, 0.1),
+    warningBackground: paint(warning, 0.1),
+    infoBackground: paint(variant.function, 0.1),
+    hintBackground: paint(type, 0.1),
   };
+}
+
+export function tints(variant: Variant) {
+  return paintTints(variant, (color, amount) => mix(color, variant.background, amount));
+}
+
+export function overlays(variant: Variant) {
+  return paintTints(variant, alpha);
+}
+
+export function halfOverlays(variant: Variant) {
+  return paintTints(variant, (color, amount) => alpha(color, 1 - Math.sqrt(1 - amount)));
 }

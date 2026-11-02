@@ -8,7 +8,7 @@
 <p align="center">
   <a href="https://github.com/irwinarruda/favo-theme/actions/workflows/check.yml"><img src="https://img.shields.io/github/actions/workflow/status/irwinarruda/favo-theme/check.yml?branch=main&label=contrast%20check&labelColor=14110B" alt="Contrast check status"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-F5A623?labelColor=14110B" alt="MIT license"></a>
-  <img src="https://img.shields.io/badge/Neovim%20%C2%B7%20Vim%20%C2%B7%20Zed%20%C2%B7%20Ghostty%20%C2%B7%20OpenCode%20%C2%B7%20T3%20Code%20%C2%B7%20Herdr-F3E7CF?labelColor=14110B" alt="Neovim, Vim, Zed, Ghostty, OpenCode, T3 Code and Herdr">
+  <img src="https://img.shields.io/badge/Neovim%20%C2%B7%20Vim%20%C2%B7%20VS%20Code%20%C2%B7%20Cursor%20%C2%B7%20Zed%20%C2%B7%20Ghostty%20%C2%B7%20OpenCode%20%C2%B7%20T3%20Code%20%C2%B7%20Herdr-F3E7CF?labelColor=14110B" alt="Neovim, Vim, VS Code, Cursor, Zed, Ghostty, OpenCode, T3 Code and Herdr">
 </p>
 
 <p align="center">
@@ -53,7 +53,7 @@ Honey clears WCAG AAA and Wax clears AA for all code. Everything else is in [SPE
 
 ## Install
 
-Clone this repository for any app below that copies files, or run `bun run install-themes` from a clone to copy the Ghostty, Zed, OpenCode, T3 Code and Herdr files at once.
+Clone this repository for any app below that copies files, or run `bun run install-themes` from a clone to copy the Ghostty, Zed, OpenCode, T3 Code and Herdr files and install the VS Code and Cursor extension at once.
 
 ### Neovim
 
@@ -88,6 +88,20 @@ colorscheme favo-honey
 ```
 
 Without a plugin manager, copy `vim/colors/*.vim` to `~/.vim/colors/`. Colors are approximated in 256-color terminals, so use `termguicolors` when you can.
+
+### VS Code and Cursor
+
+Run `bun run install-themes` from a clone. It packages the `vscode/` folder into an extension and installs it with the `code` and `cursor` commands, whichever you have. Then pick **Favo Honey** or **Favo Wax** with `Preferences: Color Theme`.
+
+To do it by hand:
+
+```sh
+cd vscode
+bunx @vscode/vsce package --no-dependencies --out /tmp/favo-theme.vsix
+code --install-extension /tmp/favo-theme.vsix
+```
+
+It covers language server highlighting, rainbow brackets, diffs, the terminal and the whole interface. In `settings.json`, the theme ids are `favo-honey` and `favo-wax`.
 
 ### Zed
 
