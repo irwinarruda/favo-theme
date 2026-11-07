@@ -14,7 +14,7 @@ export const Hues = [
   { name: 'rose', role: 'param' },
   { name: 'coral', role: 'regex' },
 ] as const;
-export const GrayChroma = 0.3;
+export const GrayChroma = 0.15;
 
 const Source = { dark: raw.honey, light: raw.wax };
 const SolidLightness = 0.7;

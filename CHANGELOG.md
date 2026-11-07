@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Favo Smoke and Favo Veil, and the gray in the app palette, are less sandy: the gray keeps half as much of the honey tint, so it reads as a calm neutral with only a hint of warmth.
+
 ## [0.2.0] - 2026-11-06
 
 ### Added

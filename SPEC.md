@@ -77,7 +77,7 @@ Smoke is Honey and Veil is Wax, with calmer surfaces. Everything not listed here
 | `faint`                    | `gray` step 9                                                           |
 | `comment`                  | `gray` step 11                                                          |
 | `foreground`               | `gray` step 12                                                          |
-| `float` and the terminal's black, white, bright black and bright white | The same lightness and hue, with 30% of the color |
+| `float` and the terminal's black, white, bright black and bright white | The same lightness and hue, with 15% of the color |
 | `selection`                | `honey` step 5 in Smoke, step 4 in Veil                                 |
 | `fill`, `fillHover`, `onFill` | `honey` steps 9 and 10, with near-black text                         |
 
