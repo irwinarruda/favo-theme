@@ -1,6 +1,6 @@
 id = "favo-theme"
 name = "Favo"
-version = "0.2.0"
+version = "0.3.0"
 schema_version = 1
 authors = ["Irwin Arruda"]
 description = "Honey-led dark and light themes: Favo Honey and Favo Wax, and their calmer siblings Favo Smoke and Favo Veil."

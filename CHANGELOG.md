@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-11-07
+
 ### Changed
 
 - Favo Smoke and Favo Veil, and the gray in the app palette, are less sandy: the gray keeps half as much of the honey tint, so it reads as a calm neutral with only a hint of warmth.
@@ -30,7 +32,8 @@
 - Favo Honey and Favo Wax for VS Code and Cursor, with language server highlighting, rainbow brackets, diffs, the terminal and the whole interface.
 - Favo Honey and Favo Wax for Neovim, Vim, Zed, Ghostty, OpenCode, T3 Code and Herdr.
 
-[Unreleased]: https://github.com/irwinarruda/favo-theme/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/irwinarruda/favo-theme/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/irwinarruda/favo-theme/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/irwinarruda/favo-theme/compare/v0.1.1...v0.2.0
 [0.1.1]: https://github.com/irwinarruda/favo-theme/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/irwinarruda/favo-theme/releases/tag/v0.1.0
