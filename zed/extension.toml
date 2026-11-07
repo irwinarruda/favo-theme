@@ -3,5 +3,5 @@ name = "Favo"
 version = "0.1.1"
 schema_version = 1
 authors = ["Irwin Arruda"]
-description = "Honey-led dark and light themes, Favo Honey and Favo Wax."
+description = "Honey-led dark and light themes: Favo Honey and Favo Wax, and their calmer siblings Favo Smoke and Favo Veil."
 repository = "https://github.com/irwinarruda/favo-theme"

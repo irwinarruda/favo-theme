@@ -2,7 +2,16 @@
 
 This page is the whole theme. If you follow it, your port is Favo, whatever the app. Colors live in [`palette.json`](palette.json), which is the one source of truth; the tables here explain what each color is for.
 
-Favo has two variants: **Favo Honey** (dark) and **Favo Wax** (light). Use those names, and the ids `favo-honey` and `favo-wax` where an app needs one.
+Favo has four variants, in two pairs. Use these names, and the ids where an app needs one.
+
+| Variant        | Id           | Mode  | Surfaces     |
+| -------------- | ------------ | ----- | ------------ |
+| **Favo Honey** | `favo-honey` | dark  | Honey-tinted |
+| **Favo Wax**   | `favo-wax`   | light | Honey-tinted |
+| **Favo Smoke** | `favo-smoke` | dark  | Calm gray    |
+| **Favo Veil**  | `favo-veil`  | light | Calm gray    |
+
+Honey and Wax come from the hive. Smoke and Veil come from the beekeeper: the smoke that calms a hive and the veil worn to work it. All four share every code color. The tables below define Honey and Wax, and [Smoke and Veil](#smoke-and-veil) says what changes for the calm pair.
 
 ## Principles
 
@@ -54,6 +63,25 @@ Favo has two variants: **Favo Honey** (dark) and **Favo Wax** (light). Use those
 ### Terminal
 
 The 16 terminal colors are the `ansi` list in `palette.json`, in the usual order: black, red, green, yellow, blue, magenta, cyan, white, then the bright versions. Red is `regex`, green is `string`, yellow is `keyword`, blue is `function`, magenta is `constant` and cyan is `type`.
+
+## Smoke and Veil
+
+Smoke is Honey and Veil is Wax, with calmer surfaces. Everything not listed here, including every code color, is the same.
+
+| Name                       | Smoke and Veil                                                          |
+| -------------------------- | ----------------------------------------------------------------------- |
+| `background`               | `gray` step 1 from [APPS.md](APPS.md)                                    |
+| `panel`                    | `gray` step 2                                                           |
+| `raised`                   | `gray` step 3                                                           |
+| `border`                   | `gray` step 6                                                           |
+| `faint`                    | `gray` step 9                                                           |
+| `comment`                  | `gray` step 11                                                          |
+| `foreground`               | `gray` step 12                                                          |
+| `float` and the terminal's black, white, bright black and bright white | The same lightness and hue, with 30% of the color |
+| `selection`                | `honey` step 5 in Smoke, step 4 in Veil                                 |
+| `fill`, `fillHover`, `onFill` | `honey` steps 9 and 10, with near-black text                         |
+
+The gray keeps Favo's lightness and hue, so contrast barely moves, and the last row means Veil's buttons and current search match are honey, not brown. Smoke follows Honey's contrast rules and Veil follows Wax's.
 
 ## Code tokens
 
@@ -111,6 +139,8 @@ Selectors and units are `function`, property names and delimiters are `foregroun
 
 ## Interface
 
+This section is for editors and terminals. For websites and apps, use [APPS.md](APPS.md).
+
 | Element                        | Color                                       |
 | ------------------------------ | ------------------------------------------- |
 | Cursor                         | `accent`, with `background` for its text    |
@@ -167,14 +197,14 @@ A tint is a color laid over `background` at a fixed strength: `mix(color, backgr
 
 Contrast is the WCAG 2.1 ratio against `background`. Separation is the distance between two colors in OKLab, where equal steps look equally different.
 
-| Rule                                            | Honey     | Wax       |
+| Rule                                            | Honey, Smoke | Wax, Veil |
 | ----------------------------------------------- | --------- | --------- |
 | `foreground` and every code color, at least     | 7:1       | 4.5:1     |
 | `comment`, at least                             | 4.5:1     | 4:1       |
 | `foreground` and every code color on `selection`, at least | 4.5:1 | 3.5:1 |
 | Closest two code colors, at least               | 0.10      | 0.10      |
 
-Honey clears WCAG AAA and Wax clears AA for all code. `faint` is deliberately low contrast, so use it only for text you can safely ignore.
+Honey and Smoke clear WCAG AAA, and Wax and Veil clear AA, for all code. `faint` is deliberately low contrast, so use it only for text you can safely ignore.
 
 `bun run check` measures all of this and fails if a rule breaks.
 
@@ -182,7 +212,7 @@ Honey clears WCAG AAA and Wax clears AA for all code. `faint` is deliberately lo
 
 1. Read colors from `palette.json`. Do not eyeball them or copy them from another port.
 2. Map tokens with the tables above, using the app's own public docs for its token names.
-3. Ship both variants, named as above, with no color outside the palette and its tints.
+3. Ship all four variants, named as above, with no color outside the palette, its tints and the Smoke and Veil rules.
 4. If the app can't express something, drop to the next closest row rather than adding a color.
 5. Add a target in `src/targets/` when the app reads a generated file, then run `bun run build` and `bun run check`.
 

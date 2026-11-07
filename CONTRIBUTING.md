@@ -14,7 +14,7 @@ bun run install-themes   # copies the Ghostty, Zed, OpenCode, T3 Code and Herdr 
 
 ## What is generated
 
-`palette.json` is the source of truth. Everything in `ghostty/`, `herdr/`, `opencode/`, `t3code/`, `vim/colors/`, `vscode/themes/` and `zed/themes/`, plus `lua/favo/palette.lua` and `assets/palette-*.svg`, comes out of `src/targets/`. Edit the target, not the output.
+`palette.json` is the source of truth. Everything in `app/`, `ghostty/`, `herdr/`, `opencode/`, `t3code/`, `vim/colors/`, `vscode/themes/` and `zed/themes/`, plus `lua/favo/palette.lua` and `assets/*palette*.svg`, comes out of `src/targets/`. The app scales are made in `src/interface.ts`. Edit the target, not the output.
 
 The Neovim theme is the exception: the files in `colors/` and `lua/` are written by hand, and only the palette table is generated.
 

@@ -1,6 +1,6 @@
 # favo-theme
 
-Favo is a warm theme with two variants, Favo Honey (dark) and Favo Wax (light), ported to Neovim, Vim, VS Code, Cursor, Zed, Ghostty, OpenCode, T3 Code and Herdr. One palette and one spec generate almost everything, and there are no dependencies to install.
+Favo is a warm theme with four variants, Favo Honey and Favo Smoke (dark) and Favo Wax and Favo Veil (light), ported to Neovim, Vim, VS Code, Cursor, Zed, Ghostty, OpenCode, T3 Code and Herdr. One palette and one spec generate almost everything, and there are no dependencies to install.
 
 ## Commands
 
@@ -15,7 +15,8 @@ Use Bun `1.3.14`.
 ## Where things live
 
 - `SPEC.md` is the theme. `palette.json` is the one source of truth for colors.
-- `src/targets/` generates `ghostty/`, `herdr/`, `opencode/`, `t3code/`, `vim/colors/`, `vscode/themes/` and `zed/themes/`, plus `lua/favo/palette.lua` and `assets/palette-*.svg`. Edit the target, never the output.
+- `src/targets/` generates `app/`, `ghostty/`, `herdr/`, `opencode/`, `t3code/`, `vim/colors/`, `vscode/themes/` and `zed/themes/`, plus `lua/favo/palette.lua` and `assets/*palette*.svg`. Edit the target, never the output.
+- `APPS.md` is the guideline for websites and apps. Its scales and tokens come from `src/interface.ts`. Smoke and Veil are made in `src/palette.ts` from Honey and Wax with that gray, so every port gets them by looping over `Variants`.
 - `lua/` and `colors/` are the hand-written Neovim theme. Only the palette table is generated, so a token change there is manual.
 - `vscode/package.json`, `vscode/README.md` and `zed/extension.toml` are hand-written.
 

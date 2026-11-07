@@ -1,4 +1,5 @@
 import { Variants } from './palette';
+import { app } from './targets/app';
 import { ghostty } from './targets/ghostty';
 import { herdr } from './targets/herdr';
 import { neovim } from './targets/neovim';
@@ -20,6 +21,7 @@ export function outputs() {
       vim(variant),
       vscode(variant),
     ]),
+    ...app(),
     neovim(),
     zed(),
   ];

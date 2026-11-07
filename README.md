@@ -3,7 +3,7 @@
   <img src="assets/logo-light.svg#gh-light-mode-only" alt="favo" width="300">
 </p>
 
-<h3 align="center">A warm theme with the contrast to read code all day.<br>Honey for the dark, Wax for the light.</h3>
+<h3 align="center">A warm theme with the contrast to read code all day.<br>Honey and Smoke for the dark, Wax and Veil for the light.</h3>
 
 <p align="center">
   <a href="https://github.com/irwinarruda/favo-theme/actions/workflows/check.yml"><img src="https://img.shields.io/github/actions/workflow/status/irwinarruda/favo-theme/check.yml?branch=main&label=contrast%20check&labelColor=14110B" alt="Contrast check status"></a>
@@ -15,6 +15,7 @@
   <a href="#install">Install</a> ·
   <a href="#why-favo">Why Favo</a> ·
   <a href="SPEC.md">The spec</a> ·
+  <a href="APPS.md">For apps</a> ·
   <a href="CREDITS.md">Credits</a>
 </p>
 
@@ -32,6 +33,15 @@ Favo is the honeycomb. This theme started as the look of [favo](https://github.c
 
 ## Why Favo
 
+**Two moods, one set of code colors.** Favo Honey and Favo Wax wrap your code in honey, the way the hive does. Favo Smoke and Favo Veil are the beekeeper's side: the smoke that calms a hive and the veil worn to work it. They keep every code color on a calm gray, with honey only where it means something.
+
+| Variant        | Mode  | Surfaces                 |
+| -------------- | ----- | ------------------------ |
+| **Favo Honey** | dark  | Honey-tinted             |
+| **Favo Wax**   | light | Honey-tinted             |
+| **Favo Smoke** | dark  | Calm gray                |
+| **Favo Veil**  | light | Calm gray                |
+
 **Honey leads.** Keywords carry the honey color, so a file has a shape before you read a word of it.
 
 **Each color has one job.** Sky is what runs, mint is the shape of data, meadow is text, lavender is a fixed value, rose is what was passed in, and coral is a pattern or a problem. Variables and properties stay in the plain text color, so color marks structure rather than everything.
@@ -42,14 +52,14 @@ Favo is the honeycomb. This theme started as the look of [favo](https://github.c
 
 **Contrast is a contract, not a feeling.** These numbers are checked on every commit:
 
-|                                     | Favo Honey | Favo Wax |
-| ----------------------------------- | ---------- | -------- |
-| Weakest code color on the background | 7.11:1     | 4.63:1   |
-| Comments on the background          | 6.29:1     | 4.12:1   |
-| Weakest code color on a selection   | 4.96:1     | 3.85:1   |
-| Closest two code colors (OKLab)     | 0.12       | 0.10     |
+|                                      | Honey  | Smoke  | Wax    | Veil   |
+| ------------------------------------ | ------ | ------ | ------ | ------ |
+| Weakest code color on the background | 7.11:1 | 7.12:1 | 4.63:1 | 4.63:1 |
+| Comments on the background           | 6.29:1 | 6.32:1 | 4.12:1 | 5.49:1 |
+| Weakest code color on a selection    | 4.96:1 | 5.35:1 | 3.85:1 | 3.63:1 |
+| Closest two code colors (OKLab)      | 0.12   | 0.12   | 0.10   | 0.10   |
 
-Honey clears WCAG AAA and Wax clears AA for all code. Everything else is in [SPEC.md](SPEC.md): every color, every token rule and every interface rule, written so you can port Favo to anything.
+Honey and Smoke clear WCAG AAA, and Wax and Veil clear AA, for all code. Everything else is in [SPEC.md](SPEC.md): every color, every token rule and every interface rule, written so you can port Favo to anything.
 
 ## Install
 
@@ -72,7 +82,7 @@ Written in Lua from scratch, and tested on Neovim 0.12. With [lazy.nvim](https:/
 }
 ```
 
-Use `favo-wax` for the light variant. It covers tree-sitter, LSP semantic tokens, diagnostics and popular plugins: gitsigns, Telescope, nvim-cmp, blink.cmp, which-key, noice, nvim-notify, indent-blankline, rainbow-delimiters, neo-tree, nvim-tree, Trouble, nvim-dap, lazy.nvim, mason, alpha-nvim and fzf-lua.
+Use `favo-wax`, `favo-smoke` or `favo-veil` for the other variants. It covers tree-sitter, LSP semantic tokens, diagnostics and popular plugins: gitsigns, Telescope, nvim-cmp, blink.cmp, which-key, noice, nvim-notify, indent-blankline, rainbow-delimiters, neo-tree, nvim-tree, Trouble, nvim-dap, lazy.nvim, mason, alpha-nvim and fzf-lua.
 
 For lualine, set `theme = "favo"`.
 
@@ -86,6 +96,8 @@ Plug 'irwinarruda/favo-theme', { 'rtp': 'vim' }
 set termguicolors
 colorscheme favo-honey
 ```
+
+The other variants are `favo-wax`, `favo-smoke` and `favo-veil`.
 
 Without a plugin manager, copy `vim/colors/*.vim` to `~/.vim/colors/`. Colors are approximated in 256-color terminals, so use `termguicolors` when you can.
 
@@ -103,22 +115,23 @@ Cursor gets its extensions from [Open VSX](https://open-vsx.org/extension/irwina
 cursor --install-extension favo-theme-*.vsix
 ```
 
-Then pick **Favo Honey** or **Favo Wax** with `Preferences: Color Theme`.
+Then pick a Favo variant with `Preferences: Color Theme`.
 
-It covers language server highlighting, rainbow brackets, diffs, the terminal and the whole interface. In `settings.json`, the theme ids are `favo-honey` and `favo-wax`.
+It covers language server highlighting, rainbow brackets, diffs, the terminal and the whole interface. In `settings.json`, the theme ids are `favo-honey`, `favo-wax`, `favo-smoke` and `favo-veil`.
 
 ### Zed
 
-Copy [`zed/themes/favo.json`](zed/themes/favo.json) to `~/.config/zed/themes/`, then pick **Favo Honey** or **Favo Wax** from the theme selector.
+Copy [`zed/themes/favo.json`](zed/themes/favo.json) to `~/.config/zed/themes/`, then pick a Favo variant from the theme selector.
 
 For the full effect, add [`zed/semantic-tokens.jsonc`](zed/semantic-tokens.jsonc) to your Zed settings. It turns on language server highlighting and maps it to Favo, including read-only variables, which a Zed theme can't do alone.
 
 ### Ghostty
 
-Copy `ghostty/favo-honey` and `ghostty/favo-wax` to `~/.config/ghostty/themes/`, then set one in your config:
+Copy the files in `ghostty/` to `~/.config/ghostty/themes/`, then set one in your config, or a pair that follows your system:
 
 ```
 theme = light:favo-wax,dark:favo-honey
+theme = light:favo-veil,dark:favo-smoke
 ```
 
 ### OpenCode
@@ -131,16 +144,22 @@ Copy `t3code/*.json` to `~/.t3/userdata/themes/`, then run `t3 theme set favo-ho
 
 ### Herdr
 
-Paste the contents of `herdr/favo-honey.toml` into `~/.config/herdr/config.toml`, replacing any `[theme]` section, then run `herdr server reload-config`.
+Paste the contents of `herdr/favo-honey.toml`, or another variant's file, into `~/.config/herdr/config.toml`, replacing any `[theme]` section, then run `herdr server reload-config`.
 
 ### favo
 
-Honey and Wax are built in:
+Honey and Wax are built in. Smoke and Veil come with the next release of favo:
 
 ```sh
 favo theme honey
 favo theme wax
+favo theme smoke
+favo theme veil
 ```
+
+## Apps and websites
+
+Favo has a palette for websites and apps too: a calm gray, twelve steps for every Favo color, and tokens with one job each, ready as CSS, Tailwind and JSON. [APPS.md](APPS.md) has it all.
 
 ## Port it
 

@@ -1,7 +1,7 @@
 {
   "name": "favo-theme",
   "displayName": "Favo",
-  "description": "Honey-led dark and light themes, Favo Honey and Favo Wax.",
+  "description": "Honey-led dark and light themes: Favo Honey and Favo Wax, and their calmer siblings Favo Smoke and Favo Veil.",
   "version": "0.1.1",
   "publisher": "irwinarruda",
   "license": "MIT",
@@ -16,7 +16,9 @@
   "contributes": {
     "themes": [
       { "id": "favo-honey", "label": "Favo Honey", "uiTheme": "vs-dark", "path": "./themes/favo-honey.json" },
-      { "id": "favo-wax", "label": "Favo Wax", "uiTheme": "vs", "path": "./themes/favo-wax.json" }
+      { "id": "favo-wax", "label": "Favo Wax", "uiTheme": "vs", "path": "./themes/favo-wax.json" },
+      { "id": "favo-smoke", "label": "Favo Smoke", "uiTheme": "vs-dark", "path": "./themes/favo-smoke.json" },
+      { "id": "favo-veil", "label": "Favo Veil", "uiTheme": "vs", "path": "./themes/favo-veil.json" }
     ]
   }
 }

@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+### Added
+
+- A palette for websites and apps, with a calm gray, twelve steps for every Favo color and ready-to-use CSS, Tailwind and JSON files. See APPS.md.
+- Favo Smoke and Favo Veil, calmer dark and light variants with every code color on a warm gray, for every port: Neovim, Vim, VS Code, Cursor, Zed, Ghostty, OpenCode, T3 Code and Herdr.
+
 ## [0.1.1] - 2026-11-02
 
 ### Added

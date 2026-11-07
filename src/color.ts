@@ -47,6 +47,37 @@ function oklab(hex: string) {
   ];
 }
 
+export function oklch(hex: string) {
+  const [lightness = 0, a = 0, b = 0] = oklab(hex);
+  return { lightness, chroma: Math.hypot(a, b), hue: ((Math.atan2(b, a) * 180) / Math.PI + 360) % 360 };
+}
+
+function linearRgb(lightness: number, chroma: number, hue: number) {
+  const a = chroma * Math.cos((hue * Math.PI) / 180);
+  const b = chroma * Math.sin((hue * Math.PI) / 180);
+  const long = (lightness + 0.3963377774 * a + 0.2158037573 * b) ** 3;
+  const medium = (lightness - 0.1055613458 * a - 0.0638541728 * b) ** 3;
+  const short = (lightness - 0.0894841775 * a - 1.291485548 * b) ** 3;
+  return [
+    4.0767416621 * long - 3.3077115913 * medium + 0.2309699292 * short,
+    -1.2684380046 * long + 2.6097574011 * medium - 0.3413193965 * short,
+    -0.0041960863 * long - 0.7034186147 * medium + 1.707614701 * short,
+  ];
+}
+
+function encode(channel: number) {
+  const value = channel <= 0.0031308 ? 12.92 * channel : 1.055 * channel ** (1 / 2.4) - 0.055;
+  return Math.min(1, Math.max(0, value)) * 255;
+}
+
+export function fromOklch(lightness: number, chroma: number, hue: number) {
+  let fitted = chroma;
+  while (fitted > 0 && linearRgb(lightness, fitted, hue).some((channel) => channel < -0.0005 || channel > 1.0005)) {
+    fitted -= 0.0005;
+  }
+  return toHex(linearRgb(lightness, Math.max(0, fitted), hue).map(encode));
+}
+
 export function distance(first: string, second: string) {
   const to = oklab(second);
   return Math.hypot(...oklab(first).map((value, index) => value - (to[index] ?? 0)));
