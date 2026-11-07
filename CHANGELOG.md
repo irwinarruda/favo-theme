@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-11-06
+
 ### Added
 
 - A palette for websites and apps, with a calm gray, twelve steps for every Favo color and ready-to-use CSS, Tailwind and JSON files. See APPS.md.
@@ -24,6 +26,7 @@
 - Favo Honey and Favo Wax for VS Code and Cursor, with language server highlighting, rainbow brackets, diffs, the terminal and the whole interface.
 - Favo Honey and Favo Wax for Neovim, Vim, Zed, Ghostty, OpenCode, T3 Code and Herdr.
 
-[Unreleased]: https://github.com/irwinarruda/favo-theme/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/irwinarruda/favo-theme/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/irwinarruda/favo-theme/compare/v0.1.1...v0.2.0
 [0.1.1]: https://github.com/irwinarruda/favo-theme/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/irwinarruda/favo-theme/releases/tag/v0.1.0
