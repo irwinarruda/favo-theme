@@ -19,6 +19,8 @@ Use Bun `1.3.14`.
 - `APPS.md` is the guideline for websites and apps. Its scales and tokens come from `src/interface.ts`. Smoke and Veil are made in `src/palette.ts` from Honey and Wax with that gray, so every port gets them by looping over `Variants`.
 - `lua/` and `colors/` are the hand-written Neovim theme. Only the palette table is generated, so a token change there is manual.
 - `vscode/package.json`, `vscode/README.md` and `zed/extension.toml` are hand-written.
+- `assets/logo*.svg` and `assets/mark*.svg` are copies of [irwin-ui](https://github.com/irwinarruda/irwin-ui)'s `brand/favo/`, where every mark of the family is generated. Never edit or redraw them here: change the mark in irwin-ui and copy it. `vscode/icon.png` is `mark.svg` rendered at 512 px.
+- Favo is one of the themes of irwin-ui, Irwin Arruda's design system, and a product of its own. Standards that hold for every theme live there: how color is used, type, the brand marks and patterns. Keep here only what is Favo's own, and keep it complete without that repository.
 
 ## Changing the theme
 

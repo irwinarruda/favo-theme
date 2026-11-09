@@ -161,6 +161,8 @@ favo theme veil
 
 Favo has a palette for websites and apps too: a calm gray, twelve steps for every Favo color, and tokens with one job each, ready as CSS, Tailwind and JSON. [APPS.md](APPS.md) has it all.
 
+Favo is one of the themes of [irwin-ui](https://github.com/irwinarruda/irwin-ui), the design system behind [irwinarruda.com](https://www.irwinarruda.com) and The Chatbot. Type, brand marks and patterns live there. Favo stays complete by itself: [SPEC.md](SPEC.md) and [APPS.md](APPS.md) are all you need to use it.
+
 ## Port it
 
 Favo is one [`palette.json`](palette.json) and one [spec](SPEC.md). If your favorite app is missing, the spec has everything you need, and [CONTRIBUTING.md](CONTRIBUTING.md) explains how to add it here.
