@@ -58,7 +58,7 @@
   --favo-mint-8: #6AB6A3;
   --favo-mint-9: #1BB89B;
   --favo-mint-10: #00A78C;
-  --favo-mint-11: #007367;
+  --favo-mint-11: #007266;
   --favo-mint-12: #004034;
   --favo-meadow-1: #F2F8EB;
   --favo-meadow-2: #E6EFDC;
@@ -70,7 +70,7 @@
   --favo-meadow-8: #90B361;
   --favo-meadow-9: #7DB203;
   --favo-meadow-10: #71A100;
-  --favo-meadow-11: #3E7207;
+  --favo-meadow-11: #3D7104;
   --favo-meadow-12: #283D00;
   --favo-lavender-1: #F6F3FE;
   --favo-lavender-2: #EDE9F9;
@@ -124,6 +124,7 @@
   --favo-line-subtle: var(--favo-neutral-6);
   --favo-line: var(--favo-neutral-7);
   --favo-line-strong: var(--favo-neutral-8);
+  --favo-line-control: var(--favo-neutral-9);
   --favo-fg: var(--favo-neutral-12);
   --favo-fg-muted: var(--favo-neutral-11);
   --favo-fg-faint: var(--favo-neutral-9);
@@ -166,6 +167,7 @@
   --favo-neutral-10: var(--favo-gray-10);
   --favo-neutral-11: var(--favo-gray-11);
   --favo-neutral-12: var(--favo-gray-12);
+  --favo-fg-reading: color-mix(in oklab, var(--favo-fg) 45%, var(--favo-fg-muted));
 }
 
 :root[data-neutral="sand"] {
@@ -310,6 +312,7 @@
     --favo-line-subtle: var(--favo-neutral-6);
     --favo-line: var(--favo-neutral-7);
     --favo-line-strong: var(--favo-neutral-8);
+    --favo-line-control: var(--favo-neutral-9);
     --favo-fg: var(--favo-neutral-12);
     --favo-fg-muted: var(--favo-neutral-11);
     --favo-fg-faint: var(--favo-neutral-9);
@@ -469,6 +472,7 @@
   --favo-line-subtle: var(--favo-neutral-6);
   --favo-line: var(--favo-neutral-7);
   --favo-line-strong: var(--favo-neutral-8);
+  --favo-line-control: var(--favo-neutral-9);
   --favo-fg: var(--favo-neutral-12);
   --favo-fg-muted: var(--favo-neutral-11);
   --favo-fg-faint: var(--favo-neutral-9);

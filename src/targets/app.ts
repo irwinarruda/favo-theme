@@ -1,5 +1,5 @@
 import { contrast } from '../color';
-import { Hues, Modes, type Mode, Neutrals, Semantic, onColors, scales } from '../interface';
+import { Hues, Mixes, Modes, type Mix, type Mode, Neutrals, Semantic, mixed, onColors, scales } from '../interface';
 import type { Output } from '../palette';
 
 const Steps = Array.from({ length: 12 }, (_, index) => index + 1);
@@ -20,11 +20,17 @@ function modeBlock(mode: Mode) {
   ].join('\n');
 }
 
+const MixNames = Object.keys(Mixes) as Mix[];
+
 function css(): Output {
   const neutral = (flavor: string) => Steps.map((step) => `  --favo-neutral-${step}: var(--favo-${flavor}-${step});`);
+  const mixes = MixNames.map((name) => {
+    const { first, second, amount } = Mixes[name];
+    return `  --favo-${name}: color-mix(in oklab, ${variable(first)} ${amount * 100}%, ${variable(second)});`;
+  });
   const dark = modeBlock('dark');
   const text = [
-    `:root {\n${modeBlock('light')}\n${neutral('gray').join('\n')}\n}`,
+    `:root {\n${modeBlock('light')}\n${neutral('gray').join('\n')}\n${mixes.join('\n')}\n}`,
     `:root[data-neutral="sand"] {\n${neutral('sand').join('\n')}\n}`,
     `@media (prefers-color-scheme: dark) {\n  :root:not([data-theme="light"]) {\n${dark.replaceAll('\n  ', '\n    ').replace(/^ {2}/, '    ')}\n  }\n}`,
     `:root[data-theme="dark"] {\n${dark}\n}`,
@@ -37,14 +43,16 @@ function tailwind(): Output {
   const lines = [
     ...scaleNames.flatMap((name) => Steps.map((step) => `  --color-${name}-${step}: var(--favo-${name}-${step});`)),
     ...Hues.map(({ name }) => `  --color-on-${name}: var(--favo-on-${name});`),
-    ...Object.keys(Semantic).map((token) => `  --color-${token}: var(--favo-${token});`),
+    ...[...Object.keys(Semantic), ...MixNames].map((token) => `  --color-${token}: var(--favo-${token});`),
   ];
   return { path: 'app/tailwind.css', text: `@import "./favo.css";\n\n@theme inline {\n${lines.join('\n')}\n}\n` };
 }
 
 function tokens(): Output {
-  const modes = Object.fromEntries(Modes.map((mode) => [mode, { scales: scales(mode), on: onColors(mode) }]));
-  return { path: 'app/tokens.json', text: `${JSON.stringify({ ...modes, semantic: Semantic }, undefined, 2)}\n` };
+  const blends = (mode: Mode) =>
+    Object.fromEntries(MixNames.map((name) => [name, Object.fromEntries(Neutrals.map((flavor) => [flavor, mixed(name, mode, flavor)]))]));
+  const modes = Object.fromEntries(Modes.map((mode) => [mode, { scales: scales(mode), on: onColors(mode), mixed: blends(mode) }]));
+  return { path: 'app/tokens.json', text: `${JSON.stringify({ ...modes, semantic: Semantic, mixes: Mixes }, undefined, 2)}\n` };
 }
 
 function picture(mode: Mode): Output {

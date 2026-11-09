@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { contrast, distance } from './color';
-import { Modes, Neutrals, Semantic, Status, resolve } from './interface';
+import { Hues, Modes, Neutrals, Semantic, Status, mixed, resolve } from './interface';
 import { outputs } from './outputs';
 import { CodeRoles, Variants } from './palette';
 
@@ -31,7 +31,7 @@ for (const variant of Variants) {
   expect('closest two code colors', Math.min(...pairs), SeparationFloor);
 }
 
-const InterfaceFloors = { text: 7, muted: 4.5, faint: 3, signal: 4.5, onSolid: 4.5, focus: 3 };
+const InterfaceFloors = { text: 7, reading: 7, muted: 4.5, faint: 3, signal: 4.5, onSolid: 4.5, focus: 3, control: 3 };
 
 for (const mode of Modes) {
   for (const flavor of Neutrals) {
@@ -43,16 +43,19 @@ for (const mode of Modes) {
     expect('text on every surface', weakest('fg', [...states, 'pressed']), InterfaceFloors.text);
     expect('muted text on every surface', weakest('fg-muted', states), InterfaceFloors.muted);
     expect('faint text on surface', weakest('fg-faint', ['surface']), InterfaceFloors.faint);
-    const signals = ['primary-fg', ...Object.keys(Status)];
+    const reading = mixed('fg-reading', mode, flavor);
+    expect('reading text on every surface', Math.min(...states.map((surface) => contrast(reading, token(surface)))), InterfaceFloors.reading);
+    const step = (name: string, index: number) => resolve(`${name}-${index}`, mode, flavor);
     expect(
-      'brand and status text on surfaces and their soft backgrounds',
+      'colored text on every surface and its soft background',
       Math.min(
-        ...signals.map((signal) =>
-          weakest(signal, ['page', 'surface', signal === 'primary-fg' ? 'primary-soft' : `${signal}-soft`]),
+        ...Hues.flatMap(({ name }) =>
+          [...states.map(token), step(name, 3)].map((surface) => contrast(step(name, 11), surface)),
         ),
       ),
       InterfaceFloors.signal,
     );
+    expect('control borders on page, surface and raised', weakest('line-control', ['page', 'surface', 'raised']), InterfaceFloors.control);
     expect(
       'text on solid fills',
       Math.min(

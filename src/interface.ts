@@ -1,5 +1,5 @@
 import raw from '../palette.json';
-import { contrast, fromOklch, oklch } from './color';
+import { blend, contrast, fromOklch, oklch } from './color';
 
 export const Modes = ['dark', 'light'] as const;
 export type Mode = (typeof Modes)[number];
@@ -105,8 +105,8 @@ function hue(mode: Mode, role: (typeof Hues)[number]['role'], name: string) {
     name === 'honey' && mode === 'dark'
       ? Source.dark.fillHover
       : fromOklch(solidColor.lightness + (mode === 'dark' ? 0.05 : -0.05), solidColor.chroma, solidColor.hue);
-  const page = neutral(mode, 'gray')[mode === 'dark' ? 0 : 1] as string;
-  const text = mode === 'dark' ? Source.dark[role] : darkenUntil(Source.light[role], [tints[2] as string, page], 4.5);
+  const surfaces = Neutrals.flatMap((flavor) => neutral(mode, flavor).slice(0, 3));
+  const text = mode === 'dark' ? Source.dark[role] : darkenUntil(Source.light[role], [tints[2] as string, ...surfaces], 4.5);
   const strong =
     mode === 'dark'
       ? fromOklch(0.94, solidColor.chroma * 0.25, solidColor.hue)
@@ -144,6 +144,7 @@ export const Semantic = {
   'line-subtle': { dark: 'neutral-6', light: 'neutral-6' },
   line: { dark: 'neutral-7', light: 'neutral-7' },
   'line-strong': { dark: 'neutral-8', light: 'neutral-8' },
+  'line-control': { dark: 'neutral-9', light: 'neutral-9' },
   fg: { dark: 'neutral-12', light: 'neutral-12' },
   'fg-muted': { dark: 'neutral-11', light: 'neutral-11' },
   'fg-faint': { dark: 'neutral-9', light: 'neutral-9' },
@@ -164,6 +165,14 @@ export const Semantic = {
     ]),
   ),
 } as Record<string, Record<Mode, string>>;
+
+export const Mixes = { 'fg-reading': { first: 'fg', second: 'fg-muted', amount: 0.45 } } as const;
+export type Mix = keyof typeof Mixes;
+
+export function mixed(name: Mix, mode: Mode, flavor: Neutral) {
+  const { first, second, amount } = Mixes[name];
+  return blend(resolve(Semantic[first]?.[mode] ?? '', mode, flavor), resolve(Semantic[second]?.[mode] ?? '', mode, flavor), amount);
+}
 
 export function resolve(reference: string, mode: Mode, flavor: Neutral) {
   const all = scales(mode);

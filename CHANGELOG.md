@@ -2,6 +2,15 @@
 
 ## [Unreleased]
 
+### Added
+
+- Two tokens for apps: `fg-reading`, the body text of an essay or a chat reply, and `line-control`, a 3:1 border for a control that has no fill.
+- Reading surfaces in APPS.md: which Favo colors mark headings, links, tags, dates, body text and bold on essays, chat replies and notes.
+
+### Changed
+
+- In apps, colored text in light mode is a little darker, so it stays readable on a hovered row too.
+
 ## [0.3.0] - 2026-11-07
 
 ### Changed

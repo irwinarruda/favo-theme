@@ -78,6 +78,12 @@ export function fromOklch(lightness: number, chroma: number, hue: number) {
   return toHex(linearRgb(lightness, Math.max(0, fitted), hue).map(encode));
 }
 
+export function blend(first: string, second: string, amount: number) {
+  const to = oklab(second);
+  const [lightness = 0, a = 0, b = 0] = oklab(first).map((value, index) => value * amount + (to[index] ?? 0) * (1 - amount));
+  return fromOklch(lightness, Math.hypot(a, b), ((Math.atan2(b, a) * 180) / Math.PI + 360) % 360);
+}
+
 export function distance(first: string, second: string) {
   const to = oklab(second);
   return Math.hypot(...oklab(first).map((value, index) => value - (to[index] ?? 0)));

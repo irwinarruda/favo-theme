@@ -137,6 +137,7 @@
   --color-line-subtle: var(--favo-line-subtle);
   --color-line: var(--favo-line);
   --color-line-strong: var(--favo-line-strong);
+  --color-line-control: var(--favo-line-control);
   --color-fg: var(--favo-fg);
   --color-fg-muted: var(--favo-fg-muted);
   --color-fg-faint: var(--favo-fg-faint);
@@ -167,4 +168,5 @@
   --color-info-line: var(--favo-info-line);
   --color-info-solid: var(--favo-info-solid);
   --color-on-info: var(--favo-on-info);
+  --color-fg-reading: var(--favo-fg-reading);
 }
